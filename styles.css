@@ -443,6 +443,31 @@ body {
     font-size: 1.2rem;
 }
 
+.download-cv-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-cv-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(100, 255, 218, 0.1);
+}
+
+.download-cv-btn i {
+    font-size: 1rem;
+}
+
 @media (max-width: 768px) {
     body {
         overflow-x: hidden;

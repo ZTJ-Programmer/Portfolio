@@ -59,6 +59,56 @@ document.addEventListener('DOMContentLoaded', () => {
             contactForm.reset();
         });
     }
+
+    // Download CV functionality
+    document.getElementById('downloadCV').addEventListener('click', function() {
+        // Create a clone of the container to modify for PDF
+        const container = document.querySelector('.container').cloneNode(true);
+        
+        // Remove elements we don't want in the PDF
+        container.querySelector('.theme-toggle')?.remove();
+        
+        // Create PDF options
+        const options = {
+            margin: 10,
+            filename: 'Zain_Tariq_CV.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { 
+                scale: 2,
+                useCORS: true,
+                logging: false
+            },
+            jsPDF: { 
+                unit: 'mm', 
+                format: 'a4', 
+                orientation: 'portrait' 
+            }
+        };
+
+        // Generate PDF
+        const element = document.createElement('div');
+        element.appendChild(container);
+        element.style.width = '100%';
+        element.style.padding = '20px';
+        
+        // Create loading indicator
+        const button = this;
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+        button.disabled = true;
+
+        // Generate and download PDF
+        html2pdf().set(options).from(element).save()
+            .then(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            })
+            .catch(err => {
+                console.error('PDF generation failed:', err);
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+    });
 });
 
 // Background animation
