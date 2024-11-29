@@ -450,16 +450,17 @@ body {
 
     .container {
         grid-template-columns: 1fr;
-        padding: 1rem;
+        padding: 0.5rem;
         gap: 1rem;
+        width: 100%;
     }
 
     .sidebar {
         position: relative;
         width: 100%;
         height: auto;
-        margin-right: 0;
-        margin-bottom: 2rem;
+        margin: 0;
+        padding: 0;
     }
 
     .profile-section {
@@ -469,16 +470,27 @@ body {
     .sidebar-content {
         max-height: none;
         overflow: visible;
+        width: 100%;
     }
 
     .main-content {
-        margin-left: 0;
-        padding: 1rem;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        gap: 1rem;
     }
 
     .glass-card {
         padding: 1.5rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .section {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 1rem;
     }
 
     .glass-card h2 {
@@ -515,10 +527,6 @@ body {
     }
 
     /* Adjust spacing for mobile */
-    .section {
-        margin-bottom: 1.5rem;
-    }
-
     .skill-item {
         margin-bottom: 1rem;
     }
@@ -540,6 +548,10 @@ body {
 
     .theme-toggle i {
         font-size: 1.2rem;
+    }
+
+    #about {
+        padding-top: 1.5rem;
     }
 }
 
